@@ -5,7 +5,11 @@ import HeaderNav from './components/Header.vue'
 import FilterModal from './components/Modal/Filter.vue'
 import SearchModal from './components/Modal/Search.vue'
 import StatisticModal from './components/Modal/Statistic.vue'
+
+// Saya menggunakan lokal data yang didapat dari Spreadsheet yang diberikan
 import mainData from './dataset/inodigi.json'
+
+// Library untuk query dan filter
 import Fuse from 'fuse.js';
 
 
@@ -33,6 +37,7 @@ export default {
   },
   methods: {
     filterDatasets(value){
+      // Berikut adalah script untuk memfilter data yang akan ditampilkan kedalam peta ketika user menggunakan fitur filter map di popup
       this.mapData = []
       if(value[1]==="") {
         this.mapData = this.mainData
@@ -58,7 +63,6 @@ export default {
     }
   },
   mounted(){
-    console.log('asdf')
     this.mapData = this.mainData
     setTimeout(() => {
       this.splash = false

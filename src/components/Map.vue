@@ -1,13 +1,13 @@
 <template>
   <div id="map-wrapper">
     <div style="height: 94vh; width: 100%; z-index: -1; ">
+      <!-- Render MAP -->
       <l-map
         :use-global-leaflet="false"
         ref="map"
         v-model:zoom="zoomMap"
         :center="mapCenter"
       >
-        <!-- url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" -->
         <l-tile-layer
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           layer-type="base"
@@ -25,6 +25,7 @@
       </l-map>
       
     </div>
+    <!-- Render popup detail ketika user klik marker -->
     <div class="modal fade" id="detailInfoModal" tabindex="-1" aria-labelledby="detailInfoModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -54,13 +55,12 @@
 </template>
 
 <script>
+// Leaflet dependencies yang diperlukan untuk render peta
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 globalThis.L = L;
 import { LMap, LTileLayer, LMarker, LIcon, LTooltip } from "@vue-leaflet/vue-leaflet";
 import Fuse from 'fuse.js';
-
-
 
 export default {
   props: ['datasets', 'themecolor', 'zoom', 'mapcenter'],
@@ -91,14 +91,9 @@ export default {
       return JSON.parse(JSON.stringify(this.datasets)) ;
     }
   },
-  watch:{
-    // zoom(newVal){
-    //   // console.log(this.$refs.map)
-    //   this.$refs.map.setView(this.mapcenter, newVal, {animation: true})
-    // }
-  },
   methods: {
     mapClicked(e) {
+      // Berikut adalah script untuk query mengambil detail data ketika user klik marker di peta
       const fuseConfig = {
         threshold: 0,
         keys: [
@@ -117,7 +112,6 @@ export default {
         keyboard: false
       })
       myModal.show()
-
     }
   },
   mounted(){

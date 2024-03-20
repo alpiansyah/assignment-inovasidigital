@@ -48,11 +48,8 @@
 export default {
   name: "header-component",
   props: ["themecolor"],
-  data() {
-    return {};
-  },
-  mounted() {},
   methods: {
+    //berikut adalah script untuk memunculkan popup
     filterModal() {
       const filterModal = new bootstrap.Modal("#filterModal", {
         keyboard: false,
