@@ -53,6 +53,7 @@ export default {
     computed: {
         listCountry(){
             let filtered = null
+            // data di store di locastorage untuk membantu memory efficiency dalam browser
             if(!localStorage.countries){
                 const unique = this.datasets.map(({ Country }) => Country);
                 filtered = this.datasets.filter(({ Country }, index) =>
@@ -66,6 +67,7 @@ export default {
         },
         listDistrict(){
             let filtered = null
+            // data di store di locastorage untuk membantu memory efficiency dalam browser
             if(!localStorage.districts){
                 const unique = this.datasets.map(({ District }) => District);
                 filtered = this.datasets.filter(({ District }, index) =>
@@ -80,12 +82,14 @@ export default {
     },
     methods: {
         submit(value){
+            // trigger function di parent component (App.vue)
             this.$emit('submitted', value)
             if(value[0] === 'Country') this.selectedDistrict = null
             else this.selectedCountry = null
             this.hideModal()
         },
         hideModal(){
+            // Hide popup modal
             var myModalEl = document.getElementById('filterModal');
             myModalEl.style.display = 'none'
             document.body.classList.remove('modal-open');
