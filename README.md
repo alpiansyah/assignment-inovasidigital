@@ -79,6 +79,6 @@ Query dalam website ini dibantu dengan library [Fuse Js](https://www.fusejs.io/)
 Selebihnya menggunakan pengoalahan Array dan Object dengan script javascript.
 
 
-### Disclaimer
+### Finale
 
 Terima kasih karena sudah tertarik dengan lamaran saya. mohon maaf bila ada kesalahan dan ketidaknyamanan, saya harap bisa bekerja bersama dengan Inovasi Digital dan dengan izin atasan dan tim saya bisa deliver kemampuan maksimal saya kepada perusahaan. Assignment ini hanya mewakili sebagian dari apa yang bisa saya deliver. Terima kasih
